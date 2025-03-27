@@ -1,0 +1,1069 @@
+<!DOCTYPE html>
+<html lang="es" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mario Ebromares | Ingeniero en Ciencias de la Informática</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Share+Tech+Mono&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary: #d4af37; /* Dorado principal */
+            --primary-light: #f5d042; /* Dorado claro */
+            --secondary: #121212; /* Negro oscuro */
+            --accent: #ffffff; /* Blanco */
+            --text-light: #f5f5f5;
+            --text-dark: #1a1a1a;
+            --bg-light: #f8f9fa;
+            --bg-dark: #0d0d0d;
+            --card-bg-light: #ffffff;
+            --card-bg-dark: #1a1a1a;
+            --overlay: rgba(0, 0, 0, 0.7);
+            --neon-glow: 0 0 10px rgba(212, 175, 55, 0.5);
+            --transition-time: 0.4s;
+        }
+
+        [data-theme="light"] {
+    --primary: #d4af37; /* Dorado principal */
+    --primary-light: #f5d042; /* Dorado claro */
+    --secondary: #7b2d3e; /* Color vino */
+    --accent: #ffffff; /* Blanco */
+    --text-light: #f5f5f5;
+    --text-dark: #333333;
+    --bg-light: #ffffff;
+    --bg-dark: #f8f9fa;
+    --card-bg-light: #ffffff;
+    --card-bg-dark: #ffffff;
+    --overlay: rgba(0, 0, 0, 0.1);
+    --neon-glow: 0 0 5px rgba(212, 175, 55, 0.3);
+}
+
+body.light-mode {
+    background-color: var(--bg-light);
+    color: var(--text-dark);
+}
+
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: var(--bg-dark);
+            color: var(--text-light);
+            transition: all var(--transition-time) ease;
+            line-height: 1.6;
+        }
+
+       body.light-mode {
+    background-color: var(--bg-light);
+    color: var(--text-dark);
+}
+
+body.light-mode .card {
+    background-color: var(--card-bg-dark);
+    border: 1px solid rgba(212, 175, 55, 0.2);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+}
+
+body.light-mode header {
+    background: linear-gradient(135deg, var(--secondary), #5a1a2b);
+    color: white;
+}
+
+body.light-mode .tagline {
+    color: var(--primary);
+}
+
+body.light-mode .contact-info a,
+body.light-mode .social-links a {
+    color: var(--accent);
+    background: rgba(212, 175, 55, 0.1);
+    border: 1px solid rgba(212, 175, 55, 0.3);
+}
+
+body.light-mode .contact-info a:hover,
+body.light-mode .social-links a:hover {
+    color: var(--primary);
+    background: rgba(212, 175, 55, 0.2);
+}
+
+body.light-mode .card .subtitle {
+    color: #666;
+}
+
+body.light-mode footer {
+    background-color: var(--secondary);
+    color: white;
+}
+
+/* Añade esto al CSS existente */
+body.dark-mode {
+    background-color: var(--bg-dark);
+    color: var(--text-light);
+}
+
+body.dark-mode .card {
+    background-color: var(--card-bg-dark);
+}
+
+body.light-mode .skill-bar {
+    background-color: rgba(0, 0, 0, 0.1);
+}
+
+body.dark-mode .skill-bar {
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+body.light-mode .card .subtitle {
+    color: #666;
+}
+
+body.dark-mode .card .subtitle {
+    color: #aaa;
+}
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header Styles */
+        header {
+            background: linear-gradient(135deg, var(--secondary), #000000);
+            color: white;
+            padding: 3rem 0;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.5);
+            border-bottom: 1px solid rgba(212, 175, 55, 0.2);
+        }
+
+        header::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: 
+                radial-gradient(circle at 20% 30%, rgba(212, 175, 55, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 80% 70%, rgba(212, 175, 55, 0.1) 0%, transparent 50%);
+            z-index: 1;
+        }
+
+        .header-content {
+            position: relative;
+            z-index: 2;
+            text-align: center;
+            animation: fadeIn 1.5s ease-out;
+        }
+
+        .profile-img {
+            width: 160px;
+            height: 160px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 4px solid var(--primary);
+            box-shadow: 0 0 30px rgba(212, 175, 55, 0.7);
+            margin-bottom: 1.5rem;
+            transition: all 0.5s ease;
+            position: relative;
+            z-index: 2;
+        }
+
+        .profile-img:hover {
+            transform: scale(1.05);
+            box-shadow: 0 0 40px rgba(212, 175, 55, 0.9);
+        }
+
+        h1 {
+            font-size: 2.8rem;
+            margin: 0.5rem 0;
+            font-weight: 700;
+            text-shadow: var(--neon-glow);
+            background: linear-gradient(to right, var(--primary), var(--accent));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            animation: glow 2s infinite alternate;
+        }
+
+        .tagline {
+            font-size: 1.3rem;
+            margin-bottom: 1.5rem;
+            font-family: 'Share Tech Mono', monospace;
+            color: var(--primary);
+            letter-spacing: 1px;
+        }
+
+        .contact-info {
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+            margin-bottom: 1.5rem;
+            flex-wrap: wrap;
+        }
+
+        .contact-info a {
+            color: var(--accent);
+            text-decoration: none;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.5rem 1rem;
+            border-radius: 30px;
+            background: rgba(212, 175, 55, 0.1);
+            border: 1px solid rgba(212, 175, 55, 0.3);
+            backdrop-filter: blur(5px);
+        }
+
+        .contact-info a:hover {
+            color: var(--primary);
+            background: rgba(212, 175, 55, 0.2);
+            transform: translateY(-3px);
+            box-shadow: var(--neon-glow);
+        }
+
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+            margin-top: 1.5rem;
+        }
+
+        .social-links a {
+            color: var(--accent);
+            font-size: 1.5rem;
+            transition: all 0.3s ease;
+            width: 45px;
+            height: 45px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            background: rgba(212, 175, 55, 0.1);
+            border: 1px solid rgba(212, 175, 55, 0.3);
+            backdrop-filter: blur(5px);
+        }
+
+        .social-links a:hover {
+            color: var(--primary);
+            transform: translateY(-5px) scale(1.1);
+            box-shadow: var(--neon-glow);
+            background: rgba(212, 175, 55, 0.2);
+        }
+
+        /* Section Styles */
+        section {
+            padding: 4rem 0;
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.8s ease, transform 0.8s ease;
+        }
+
+        section.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        h2 {
+            font-size: 2.2rem;
+            margin-bottom: 2.5rem;
+            color: var(--primary);
+            position: relative;
+            display: inline-block;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        h2::after {
+            content: "";
+            position: absolute;
+            bottom: -15px;
+            left: 0;
+            width: 70px;
+            height: 3px;
+            background: linear-gradient(to right, var(--primary), transparent);
+            border-radius: 3px;
+        }
+
+        /* Card Styles */
+        .card {
+            background-color: var(--card-bg-dark);
+            border-radius: 12px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.3);
+            transition: all 0.5s cubic-bezier(0.25, 0.8, 0.25, 1);
+            border-left: 5px solid var(--primary);
+            backdrop-filter: blur(5px);
+            border: 1px solid rgba(212, 175, 55, 0.2);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .card::before {
+            content: '';
+            position: absolute;
+            top: -2px;
+            left: -2px;
+            right: -2px;
+            bottom: -2px;
+            background: linear-gradient(45deg, var(--primary), transparent);
+            z-index: -1;
+            opacity: 0;
+            transition: opacity 0.5s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.4), var(--neon-glow);
+        }
+
+        .card:hover::before {
+            opacity: 0.1;
+        }
+
+        .card h3 {
+            margin-top: 0;
+            color: var(--primary);
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+        }
+
+        .card .subtitle {
+            color: #aaa;
+            font-style: italic;
+            margin-bottom: 1.5rem;
+            display: block;
+            font-size: 0.95rem;
+        }
+
+        .card ul {
+            padding-left: 1.5rem;
+            list-style: none;
+        }
+
+        .card li {
+            margin-bottom: 0.8rem;
+            position: relative;
+            padding-left: 1.5rem;
+        }
+
+        .card li::before {
+            content: "▹";
+            position: absolute;
+            left: 0;
+            color: var(--primary);
+            font-size: 1.2rem;
+        }
+
+        /* Timeline */
+        .timeline {
+            position: relative;
+            padding-left: 40px;
+        }
+
+        .timeline::before {
+            content: "";
+            position: absolute;
+            left: 15px;
+            top: 0;
+            bottom: 0;
+            width: 3px;
+            background: linear-gradient(to bottom, var(--primary), transparent);
+            border-radius: 3px;
+        }
+
+        .timeline-item {
+            position: relative;
+            margin-bottom: 3rem;
+            padding-bottom: 1.5rem;
+        }
+
+        .timeline-item::before {
+            content: "";
+            position: absolute;
+            left: -40px;
+            top: 8px;
+            width: 16px;
+            height: 16px;
+            border-radius: 50%;
+            background-color: var(--primary);
+            border: 3px solid var(--secondary);
+            box-shadow: 0 0 10px rgba(212, 175, 55, 0.7);
+        }
+
+        /* Skills */
+        .skills-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .skill-item {
+            margin-bottom: 2rem;
+        }
+
+        .skill-info {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 0.8rem;
+            font-weight: 500;
+        }
+
+        .skill-bar {
+            height: 12px;
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 6px;
+            overflow: hidden;
+            box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.2);
+        }
+
+        .skill-progress {
+            height: 100%;
+            background: linear-gradient(90deg, var(--primary), var(--primary-light));
+            border-radius: 6px;
+            transition: width 1.5s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .skill-progress::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(90deg, 
+                            rgba(255, 255, 255, 0.1) 0%, 
+                            rgba(255, 255, 255, 0.3) 50%, 
+                            rgba(255, 255, 255, 0.1) 100%);
+            animation: shine 2s infinite;
+        }
+
+        /* Education */
+        .education-item {
+            display: flex;
+            margin-bottom: 2rem;
+            align-items: flex-start;
+        }
+
+        .education-icon {
+            font-size: 1.8rem;
+            color: var(--primary);
+            margin-right: 1.5rem;
+            flex-shrink: 0;
+            margin-top: 0.3rem;
+        }
+
+        .education-content h3 {
+            color: var(--primary);
+            margin-bottom: 0.3rem;
+            font-size: 1.3rem;
+        }
+
+        /* Certifications */
+        .certifications {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .certification-item {
+            padding: 1.5rem;
+            background-color: rgba(212, 175, 55, 0.05);
+            border-radius: 8px;
+            border-left: 4px solid var(--primary);
+            transition: all 0.4s ease;
+            cursor: pointer;
+            border: 1px solid rgba(212, 175, 55, 0.1);
+        }
+
+        .certification-item:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3), var(--neon-glow);
+            background-color: rgba(212, 175, 55, 0.1);
+            border-color: rgba(212, 175, 55, 0.3);
+        }
+
+        .certification-item h3 {
+            color: var(--primary);
+            font-size: 1.2rem;
+            margin: 0;
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--secondary);
+            color: white;
+            text-align: center;
+            padding: 3rem 0;
+            margin-top: 4rem;
+            border-top: 1px solid rgba(212, 175, 55, 0.2);
+            position: relative;
+        }
+
+        footer::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 1px;
+            background: linear-gradient(to right, transparent, var(--primary), transparent);
+        }
+
+        footer p {
+            margin-bottom: 1.5rem;
+            font-size: 1rem;
+            opacity: 0.8;
+        }
+
+        /* Toggle Buttons */
+        .toggle-btn {
+            position: fixed;
+            width: 55px;
+            height: 55px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            z-index: 1000;
+            transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: var(--accent);
+            border: 1px solid rgba(212, 175, 55, 0.5);
+        }
+
+        .toggle-btn i {
+            transition: all 0.3s ease;
+        }
+
+        .dark-mode-toggle {
+            top: 25px;
+            right: 25px;
+        }
+
+        .language-toggle {
+            top: 25px;
+            left: 25px;
+        }
+
+        .toggle-btn:hover {
+            transform: scale(1.15) rotate(15deg);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.4), var(--neon-glow);
+            color: var(--primary);
+        }
+
+        /* Animations */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(-30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes glow {
+            0% { text-shadow: 0 0 10px rgba(212, 175, 55, 0.7); }
+            100% { text-shadow: 0 0 20px rgba(245, 208, 66, 0.9); }
+        }
+
+        @keyframes shine {
+            0% { transform: translateX(-100%); }
+            100% { transform: translateX(100%); }
+        }
+
+        @keyframes float {
+            0% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+            100% { transform: translateY(0); }
+        }
+
+        /* Particles */
+        .particles {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            pointer-events: none;
+        }
+
+        .particle {
+            position: absolute;
+            width: 2px;
+            height: 2px;
+            background-color: var(--primary);
+            border-radius: 50%;
+            opacity: 0.6;
+            animation: float 15s infinite linear;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2.2rem;
+            }
+            
+            .tagline {
+                font-size: 1.1rem;
+            }
+            
+            .contact-info {
+                flex-direction: column;
+                gap: 0.8rem;
+            }
+            
+            .skills-container {
+                grid-template-columns: 1fr;
+            }
+            
+            .toggle-btn {
+                width: 45px;
+                height: 45px;
+                font-size: 1rem;
+            }
+
+            section {
+                padding: 3rem 0;
+            }
+
+            .card {
+                padding: 1.5rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            h1 {
+                font-size: 1.8rem;
+            }
+            
+            h2 {
+                font-size: 1.6rem;
+            }
+            
+            .profile-img {
+                width: 120px;
+                height: 120px;
+            }
+
+            .contact-info a {
+                padding: 0.5rem;
+                font-size: 0.9rem;
+            }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            * {
+                transition: none !important;
+                animation: none !important;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Dark Mode Toggle -->
+    <div class="toggle-btn dark-mode-toggle" id="darkModeToggle">
+        <i class="fas fa-moon"></i>
+    </div>
+
+    <!-- Language Toggle -->
+    <div class="toggle-btn language-toggle" id="languageToggle">
+        <i class="fas fa-language"></i>
+    </div>
+
+    <!-- Particles Background -->
+    <div class="particles" id="particles"></div>
+
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <a href="1.html" target="_blank">
+    <img src="IPN.png" alt="Mario Ebromares" class="profile-img">
+</a>
+                <h1 id="main-title">Ing. Mario Jafet Ebromares Fuentes</h1>
+                <p class="tagline" id="main-tagline">Ingeniero en Ciencias de la Informática | Especialista en Cloud y Datos</p>
+                <div class="contact-info">
+                    <a href="tel:5528489669"><i class="fas fa-phone"></i> <span class="phone-text">55-28-48-96-69</span></a>
+                    <a href="mailto:marioebromares@gmail.com"><i class="fas fa-envelope"></i> <span class="email-text">marioebromares@gmail.com</span></a>
+                    <a href="#"><i class="fas fa-map-marker-alt"></i> <span class="location-text">CDMX, México</span></a>
+                </div>
+                <div class="social-links">
+                    <a href="https://www.linkedin.com/in/ebromaresmario/" target="_blank"><i class="fab fa-linkedin"></i></a>
+                    <a href="#" target="_blank"><i class="fab fa-github"></i></a>
+                    <a href="#" target="_blank"><i class="fab fa-twitter"></i></a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- About Section -->
+    <section id="about" class="section">
+        <div class="container">
+            <h2 class="section-title" data-es="Sobre Mí" data-en="About Me">Sobre Mí</h2>
+            <div class="card">
+                <p class="about-text" data-es="Profesional en Ciencias de la Informática egresado del Instituto Politécnico Nacional, apasionado por la tecnología y la innovación. Soy una persona proactiva, autodidacta y con habilidades de comunicación asertiva, lo que me permite integrarme con facilidad en equipos de trabajo y adaptarme a entornos desafiantes mediante la colaboración, identificando oportunidades de mejora y analizando escenarios desde múltiples perspectivas. Tengo una mentalidad abierta al cambio y al aprendizaje continuo, y valoro la comunicación clara y el respeto como pilares para lograr objetivos comunes. Como profesional, busco no solo crecer individualmente, sino también contribuir al desarrollo de mi equipo, combinando creatividad, análisis y un trato siempre profesional." data-en="Professional in Computer Science graduated from the National Polytechnic Institute, passionate about technology and innovation. I am a proactive, self-taught person with assertive communication skills, which allows me to easily integrate into work teams and adapt to challenging environments through collaboration, identifying improvement opportunities and analyzing scenarios from multiple perspectives. I have an open mindset to change and continuous learning, and I value clear communication and respect as pillars to achieve common goals. As a professional, I seek not only to grow individually but also to contribute to the development of my team, combining creativity, analysis and always professional treatment.">
+                    Profesional en Ciencias de la Informática egresado del Instituto Politécnico Nacional, apasionado por la tecnología y la innovación. Soy una persona proactiva, autodidacta y con habilidades de comunicación asertiva, lo que me permite integrarme con facilidad en equipos de trabajo y adaptarme a entornos desafiantes mediante la colaboración, identificando oportunidades de mejora y analizando escenarios desde múltiples perspectivas. Tengo una mentalidad abierta al cambio y al aprendizaje continuo, y valoro la comunicación clara y el respeto como pilares para lograr objetivos comunes. Como profesional, busco no solo crecer individualmente, sino también contribuir al desarrollo de mi equipo, combinando creatividad, análisis y un trato siempre profesional.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Experience Section -->
+    <section id="experience" class="section">
+        <div class="container">
+            <h2 class="section-title" data-es="Experiencia Profesional" data-en="Professional Experience">Experiencia Profesional</h2>
+            
+            <div class="timeline">
+                <div class="card timeline-item">
+                    <h3 data-es="Ingeniero de Datos" data-en="Data Engineer">Ingeniero de Datos</h3>
+                    <span class="subtitle">Martinexsa | <span data-es="Octubre 2023 – Mayo 2024" data-en="October 2023 – May 2024">Octubre 2023 – Mayo 2024</span></span>
+                    <ul>
+                        <li data-es="Monitoreo y optimización de clusters en entornos cloud, garantizando alta disponibilidad." data-en="Monitoring and optimization of clusters in cloud environments, ensuring high availability.">Monitoreo y optimización de clusters en entornos cloud, garantizando alta disponibilidad.</li>
+                        <li data-es="Despliegue y gestión de servicios en la nube (Cloudera/Azure/), con enfoque en escalabilidad y costos." data-en="Deployment and management of cloud services (Cloudera/Azure/), with focus on scalability and costs.">Despliegue y gestión de servicios en la nube (Cloudera/Azure/), con enfoque en escalabilidad y costos.</li>
+                        <li data-es="Solución proactiva de fallas en DAGs de Airflow, minimizando tiempos de inactividad." data-en="Proactive troubleshooting of Airflow DAGs, minimizing downtime.">Solución proactiva de fallas en DAGs de Airflow, minimizando tiempos de inactividad.</li>
+                        <li data-es="Procesamiento de datos: Consultas SQL complejas en Impala, DBbear y transformación de datos con Python (Pandas, PySpark*)." data-en="Data processing: Complex SQL queries in Impala, DBbear and data transformation with Python (Pandas, PySpark*).">Procesamiento de datos: Consultas SQL complejas en Impala, DBbear y transformación de datos con Python (Pandas, PySpark*).</li>
+                        <li data-es="Diseño de arquitecturas cloud adaptadas a necesidades empresariales, desde ETL hasta pipelines automatizados." data-en="Design of cloud architectures adapted to business needs, from ETL to automated pipelines.">Diseño de arquitecturas cloud adaptadas a necesidades empresariales, desde ETL hasta pipelines automatizados.</li>
+                        <li data-es="Coordinación internacional: Transferencia de conocimientos y alineación técnica con equipos en India, República Dominicana y Guatemala." data-en="International coordination: Knowledge transfer and technical alignment with teams in India, Dominican Republic and Guatemala.">Coordinación internacional: Transferencia de conocimientos y alineación técnica con equipos en India, República Dominicana y Guatemala.</li>
+                    </ul>
+                </div>
+                
+                <div class="card timeline-item">
+                    <h3 data-es="Soporte Técnico" data-en="Technical Support">Soporte Técnico</h3>
+                    <span class="subtitle">Centro Médico DALINDE | <span data-es="Febrero 2023 – Junio 2023" data-en="February 2023 – June 2023">Febrero 2023 – Junio 2023</span></span>
+                    <ul>
+                        <li data-es="Realicé mantenimiento preventivo y correctivo en equipos de cómputo y periféricos, asegurando su funcionalidad óptima." data-en="Performed preventive and corrective maintenance on computer equipment and peripherals, ensuring optimal functionality.">Realicé mantenimiento preventivo y correctivo en equipos de cómputo y periféricos, asegurando su funcionalidad óptima.</li>
+                        <li data-es="Ensamblé y configuré equipos de PC según requerimientos técnicos y necesidades del usuario." data-en="Assembled and configured PC equipment according to technical requirements and user needs.">Ensamblé y configuré equipos de PC según requerimientos técnicos y necesidades del usuario.</li>
+                        <li data-es="Recuperé datos críticos desde discos duros (HDD) dañados, minimizando pérdidas de información." data-en="Recovered critical data from damaged hard drives (HDD), minimizing information loss.">Recuperé datos críticos desde discos duros (HDD) dañados, minimizando pérdidas de información.</li>
+                        <li data-es="Organicé y optimicé bases de datos para mejorar su acceso y eficiencia operativa." data-en="Organized and optimized databases to improve access and operational efficiency.">Organicé y optimicé bases de datos para mejorar su acceso y eficiencia operativa.</li>
+                        <li data-es="Brindé soporte técnico especializado, resolviendo incidencias de hardware y software de manera oportuna." data-en="Provided specialized technical support, resolving hardware and software issues in a timely manner.">Brindé soporte técnico especializado, resolviendo incidencias de hardware y software de manera oportuna.</li>
+                    </ul>
+                </div>
+                
+                <div class="card timeline-item">
+                    <h3 data-es="Soporte Técnico" data-en="Technical Support">Soporte Técnico</h3>
+                    <span class="subtitle">Casa del Jubilado y Pensionado IMSS | <span data-es="Agosto 2017 – Octubre 2018" data-en="August 2017 – October 2018">Agosto 2017 – Octubre 2018</span></span>
+                    <ul>
+                        <li data-es="Gestión y registro de integrantes en bases de datos institucionales." data-en="Management and registration of members in institutional databases.">Gestión y registro de integrantes en bases de datos institucionales.</li>
+                        <li data-es="Diagnóstico y solución de fallas en equipos de cómputo e infraestructura tecnológica." data-en="Diagnosis and solution of failures in computer equipment and technological infrastructure.">Diagnóstico y solución de fallas en equipos de cómputo e infraestructura tecnológica.</li>
+                        <li data-es="Sustitución de componentes hardware dañados (unidades de almacenamiento, memorias, periféricos)." data-en="Replacement of damaged hardware components (storage units, memory, peripherals).">Sustitución de componentes hardware dañados (unidades de almacenamiento, memorias, periféricos).</li>
+                        <li data-es="Ejecución de mantenimiento preventivo y correctivo en sistemas operativos Windows." data-en="Execution of preventive and corrective maintenance on Windows operating systems.">Ejecución de mantenimiento preventivo y correctivo en sistemas operativos Windows.</li>
+                        <li data-es="Configuración, actualización y optimización de software institucional." data-en="Configuration, updating and optimization of institutional software.">Configuración, actualización y optimización de software institucional.</li>
+                        <li data-es="Atención personalizada a usuarios finales brindando asistencia técnica especializada." data-en="Personalized attention to end users providing specialized technical assistance.">Atención personalizada a usuarios finales brindando asistencia técnica especializada.</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Education Section -->
+    <section id="education" class="section">
+        <div class="container">
+            <h2 class="section-title" data-es="Formación Académica" data-en="Education">Formación Académica</h2>
+            
+            <div class="card">
+                <div class="education-item">
+                    <i class="fas fa-graduation-cap education-icon"></i>
+                    <div class="education-content">
+                        <h3 data-es="Ingeniería en Ciencias de la Informática" data-en="Computer Science Engineering">Ingeniería en Ciencias de la Informática</h3>
+                        <p class="subtitle">UPIICSA, IPN</p>
+                    </div>
+                </div>
+                
+                <div class="education-item">
+                    <i class="fas fa-certificate education-icon"></i>
+                    <div class="education-content">
+                        <h3 data-es="Técnico en Sistemas Digitales" data-en="Digital Systems Technician">Técnico en Sistemas Digitales</h3>
+                        <p class="subtitle">CECyT No.1, IPN</p>
+                    </div>
+                </div>
+                
+                <div class="education-item">
+                    <i class="fas fa-certificate education-icon"></i>
+                    <div class="education-content">
+                        <h3 data-es="Diplomado Educación Financiera" data-en="Financial Education Diploma">Diplomado Educación Financiera</h3>
+                        <p class="subtitle">CONDUSEF</p>
+                    </div>
+                </div>
+                
+                <div class="education-item">
+                    <i class="fas fa-certificate education-icon"></i>
+                    <div class="education-content">
+                        <h3 data-es="Diplomado Técnico en Sistemas Informáticos" data-en="Computer Systems Technician Diploma">Diplomado Técnico en Sistemas Informáticos</h3>
+                        <p class="subtitle">Fundación Carlos Slim</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="section">
+        <div class="container">
+            <h2 class="section-title" data-es="Habilidades Técnicas" data-en="Technical Skills">Habilidades Técnicas</h2>
+            
+            <div class="card">
+                <div class="skills-container">
+                    <div class="skill-item">
+                        <div class="skill-info">
+                            <span data-es="Azure Cloud" data-en="Azure Cloud">Azure Cloud</span>
+                            <span>85%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" style="width: 85%;"></div>
+                        </div>
+                    </div>
+                    
+                    <div class="skill-item">
+                        <div class="skill-info">
+                            <span data-es="Python (Pandas, PySpark)" data-en="Python (Pandas, PySpark)">Python (Pandas, PySpark)</span>
+                            <span>80%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" style="width: 80%;"></div>
+                        </div>
+                    </div>
+                    
+                    <div class="skill-item">
+                        <div class="skill-info">
+                            <span data-es="SQL" data-en="SQL">SQL</span>
+                            <span>90%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" style="width: 90%;"></div>
+                        </div>
+                    </div>
+                    
+                    <div class="skill-item">
+                        <div class="skill-info">
+                            <span data-es="ETL Pipelines" data-en="ETL Pipelines">ETL Pipelines</span>
+                            <span>75%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" style="width: 75%;"></div>
+                        </div>
+                    </div>
+                    
+                    <div class="skill-item">
+                        <div class="skill-info">
+                            <span data-es="Airflow" data-en="Airflow">Airflow</span>
+                            <span>70%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" style="width: 70%;"></div>
+                        </div>
+                    </div>
+                    
+                    <div class="skill-item">
+                        <div class="skill-info">
+                            <span data-es="Soporte Técnico" data-en="Technical Support">Soporte Técnico</span>
+                            <span>95%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" style="width: 95%;"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Certifications Section -->
+    <section id="certifications" class="section">
+        <div class="container">
+            <h2 class="section-title" data-es="Certificaciones" data-en="Certifications">Certificaciones</h2>
+            
+            <div class="card">
+                <div class="certifications">
+                    <div class="certification-item" onclick="window.open('https://learn.microsoft.com/es-mx/users/mariojafetebromaresfuentes-6996/credentials/24cf43dbf49a53f4?ref=https%3A%2F%2Fwww.linkedin.com%2F', '_blank')">
+                        <h3>Microsoft Certified: Azure Fundamentals</h3>
+                    </div>
+                    
+                    <div class="certification-item" onclick="window.open('https://www.credly.com/badges/4f8cbe38-dae9-4665-957a-8962f292e654/linked_in_profile', '_blank')">
+                        <h3>CDP Certified Administrator-Private Cloud Base</h3>
+                    </div>
+                    
+                    <div class="certification-item" onclick="window.open('https://www.credly.com/badges/42351ecd-834a-4b8b-a949-dca0e0a315a4/linked_in_profile', '_blank')">
+                        <h3>Introduction to Cybersecurity</h3>
+                    </div>
+                    
+                    <div class="certification-item" onclick="window.open('https://courses.cognitiveclass.ai/certificates/fd301bfa58754ab2b7de4d74a9b76c8d', '_blank')">
+                        <h3>Python 101 for Data Science</h3>
+                    </div>
+                    
+                    <div class="certification-item" onclick="window.open('https://www.udemy.com/certificate/UC-1f9474f0-2033-4da5-8677-02b9ebb58281/', '_blank')">
+                        <h3>Kali Linux Seguridad Informática</h3>
+                    </div>
+                    
+                    <div class="certification-item" onclick="window.open('https://www.udemy.com/certificate/UC-c61fddef-ba59-4a0d-8d51-dc8071465c70/?utm_source=sendgrid.com&utm_medium=email&utm_campaign=email', '_blank')">
+                        <h3>Implementación de Scrum y XP</h3>
+                    </div>
+                    
+                    <div class="certification-item" onclick="window.open('https://www.udemy.com/certificate/UC-901739a4-9d21-49d6-bfd9-e27e6995ccc6/', '_blank')">
+                        <h3>Desarrollo Web, HTML5, CSS3, JS, AJAX, PHP y MySQL</h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 Mario Ebromares. <span data-es="Todos los derechos reservados." data-en="All rights reserved.">Todos los derechos reservados.</span></p>
+            <div class="social-links">
+                <a href="https://www.linkedin.com/in/ebromaresmario/" target="_blank"><i class="fab fa-linkedin"></i></a>
+                <a href="#" target="_blank"><i class="fab fa-github"></i></a>
+                <a href="#" target="_blank"><i class="fab fa-twitter"></i></a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Dark Mode Toggle
+const darkModeToggle = document.getElementById('darkModeToggle');
+const body = document.body;
+
+// Check for saved theme preference or use preferred color scheme
+const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+let darkMode = localStorage.getItem('darkMode') === 'true' || 
+              (localStorage.getItem('darkMode') === null && prefersDark);
+
+// Apply initial theme
+updateTheme();
+
+darkModeToggle.addEventListener('click', () => {
+    darkMode = !darkMode;
+    localStorage.setItem('darkMode', darkMode);
+    updateTheme();
+});
+
+function updateTheme() {
+    if (darkMode) {
+        body.classList.remove('light-mode');
+        document.documentElement.setAttribute('data-theme', 'dark');
+        darkModeToggle.querySelector('i').classList.remove('fa-moon');
+        darkModeToggle.querySelector('i').classList.add('fa-sun');
+    } else {
+        body.classList.add('light-mode');
+        document.documentElement.setAttribute('data-theme', 'light');
+        darkModeToggle.querySelector('i').classList.remove('fa-sun');
+        darkModeToggle.querySelector('i').classList.add('fa-moon');
+    }
+}
+
+        // Language Toggle
+        const languageToggle = document.getElementById('languageToggle');
+        let currentLanguage = localStorage.getItem('language') || 'es';
+        
+        // Elements that need translation
+        const translateElements = document.querySelectorAll('[data-es], [data-en]');
+        
+        // Apply initial language
+        updateLanguage();
+        
+        languageToggle.addEventListener('click', () => {
+            currentLanguage = currentLanguage === 'es' ? 'en' : 'es';
+            localStorage.setItem('language', currentLanguage);
+            updateLanguage();
+        });
+
+        function updateLanguage() {
+            translateElements.forEach(element => {
+                if (element.hasAttribute(`data-${currentLanguage}`)) {
+                    if (element.tagName === 'INPUT' || element.tagName === 'TEXTAREA') {
+                        element.value = element.getAttribute(`data-${currentLanguage}`);
+                    } else {
+                        element.textContent = element.getAttribute(`data-${currentLanguage}`);
+                    }
+                }
+            });
+            
+            // Update document language attribute
+            document.documentElement.lang = currentLanguage;
+        }
+
+        // Scroll animations
+        const sections = document.querySelectorAll('.section');
+        
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, { threshold: 0.1 });
+        
+        sections.forEach(section => {
+            observer.observe(section);
+        });
+
+        // Animate skill bars on scroll
+        const skillBars = document.querySelectorAll('.skill-progress');
+        
+        const skillObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const width = entry.target.style.width;
+                    entry.target.style.width = '0';
+                    setTimeout(() => {
+                        entry.target.style.width = width;
+                    }, 100);
+                }
+            });
+        }, { threshold: 0.5 });
+        
+        skillBars.forEach(bar => {
+            skillObserver.observe(bar);
+        });
+
+        // Create particles
+        function createParticles() {
+            const particlesContainer = document.getElementById('particles');
+            const particleCount = 30;
+            
+            for (let i = 0; i < particleCount; i++) {
+                const particle = document.createElement('div');
+                particle.classList.add('particle');
+                
+                // Random position
+                particle.style.left = `${Math.random() * 100}%`;
+                particle.style.top = `${Math.random() * 100}%`;
+                
+                // Random size
+                const size = Math.random() * 3 + 1;
+                particle.style.width = `${size}px`;
+                particle.style.height = `${size}px`;
+                
+                // Random opacity
+                particle.style.opacity = Math.random() * 0.6 + 0.2;
+                
+                // Random animation duration
+                const duration = Math.random() * 20 + 10;
+                particle.style.animationDuration = `${duration}s`;
+                particle.style.animationDelay = `${Math.random() * 5}s`;
+                
+                particlesContainer.appendChild(particle);
+            }
+        }
+
+        // Initialize particles
+        createParticles();
+
+        // Handle system preference changes
+        window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', e => {
+    if (localStorage.getItem('darkMode') === null) {
+        darkMode = e.matches;
+        updateTheme();
+    }
+});
+    </script>
+</body>
+</html>

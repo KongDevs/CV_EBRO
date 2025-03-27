@@ -1,0 +1,562 @@
+<!DOCTYPE html>
+<html lang="es" data-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Portafolio profesional de Mario Jafet Ebromares Fuentes">
+    <meta name="theme-color" content="#000000">
+    <title>Mario Ebromares</title>
+    <style>
+        :root {
+            --bg-opacity: 0.5;
+            --text-color: #5E0B15;
+            --btn-bg: rgba(94, 11, 21, 0.1);
+            --btn-hover: rgba(94, 11, 21, 0.3);
+            --border-color: #5E0B15;
+            --brightness: 1;
+            --overlay: rgba(255, 255, 255, 0.7);
+            --transition-time: 0.5s;
+            --footer-bg: #5E0B15;
+            --link-color: #D4AF37;
+            --link-hover: #F5D042;
+            --primary-accent: #5E0B15;
+            --secondary-accent: #D4AF37;
+            --neon-glow: 0 0 10px rgba(212, 175, 55, 0.5);
+            --card-bg: rgba(255, 255, 255, 0.9);
+            --gold-gradient: linear-gradient(135deg, #D4AF37, #F5D042, #D4AF37);
+            --text-gold: #d8ad1e;
+            --text-light: #FFFFFF;
+            --text-dark: #5E0B15;
+        }
+
+        [data-theme="dark"] {
+            --bg-opacity: 0.8;
+            --text-color: #ffffff;
+            --btn-bg: rgba(212, 175, 55, 0.2);
+            --btn-hover: rgba(212, 175, 55, 0.4);
+            --brightness: 0.5;
+            --overlay: rgba(0, 0, 0, 0.8);
+            --footer-bg: #0d0d0d;
+            --primary-accent: #f5d042;
+            --secondary-accent: #ffffff;
+            --neon-glow: 0 0 15px rgba(245, 208, 66, 0.9);
+            --card-bg: rgba(13, 13, 13, 0.9);
+            --link-color: #d4af37;
+            --link-hover: #f5d042;
+        }
+
+        [data-theme="light"] { --brightness: 1.2; }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body, html {
+            height: 100%;
+            font-family: 'Poppins', 'Segoe UI', system-ui, -apple-system, sans-serif;
+            color: var(--text-color);
+            transition: all var(--transition-time) ease;
+            display: flex;
+            flex-direction: column;
+            background-color: #000;
+        }
+
+        .main-content {
+            flex: 1;
+            display: grid;
+            place-items: center;
+            position: relative;
+            z-index: 1;
+            background-color: var(--overlay);
+            transition: background-color var(--transition-time) ease;
+            padding: 2rem;
+        }
+
+        .hero-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            max-width: 800px;
+            width: 100%;
+        }
+
+        .hero-title {
+            font-size: 3rem;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+            background: var(--gold-gradient);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: wine;
+            text-shadow: var(--neon-glow);
+            animation: glow 2s infinite alternate, fadeIn 1s ease-out forwards;
+        }
+
+        .btn-container {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+            align-items: center;
+            margin-bottom: 2rem;
+            width: 100%;
+            max-width: 500px;
+            animation: fadeIn 0.8s ease-out forwards;
+        }
+
+        .btn {
+            display: inline-flex;
+            padding: 1.2rem 2.5rem;
+            background: linear-gradient(135deg, var(--primary-accent), var(--secondary-accent));
+            color: var(--text-dark);
+            text-decoration: none;
+            font-size: 1.1rem;
+            font-weight: 600;
+            border: none;
+            border-radius: 50px;
+            transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+            backdrop-filter: blur(5px);
+            width: 100%;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3), var(--neon-glow);
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
+            border: 1px solid rgba(212, 175, 55, 0.3);
+        }
+
+        .btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+            transition: 0.5s;
+            z-index: -1;
+        }
+
+        .btn:hover::before {
+            left: 100%;
+        }
+
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.4), 0 0 20px rgba(245, 208, 66, 0.8);
+        }
+
+        .btn:active {
+            transform: translateY(1px);
+        }
+
+        .toggle-btn {
+            position: fixed;
+            top: 1.5rem;
+            width: 3.5rem;
+            height: 3.5rem;
+            border-radius: 50%;
+            background-color: var(--btn-bg);
+            border: 2px solid var(--primary-accent);
+            cursor: pointer;
+            display: grid;
+            place-items: center;
+            color: var(--primary-accent);
+            font-size: 1.5rem;
+            backdrop-filter: blur(5px);
+            transition: all 0.3s ease;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2), 0 0 8px rgba(212, 175, 55, 0.3);
+            animation: pulse 2s infinite;
+        }
+
+        .toggle-btn:hover {
+            transform: scale(1.1);
+            box-shadow: 0 0 15px var(--primary-accent), 0 0 30px rgba(212, 175, 55, 0.5);
+            animation: none;
+        }
+
+        .toggle-btn:active {
+            transform: scale(0.95);
+        }
+
+        #languageToggle {
+            left: 1.5rem;
+            animation-delay: 0.2s;
+        }
+
+        #nightToggle {
+            right: 1.5rem;
+            animation-delay: 0.4s;
+        }
+
+        @media (max-width: 768px) {
+            .toggle-btn {
+                width: 3rem;
+                height: 3rem;
+                font-size: 1.2rem;
+            }
+            
+            #languageToggle {
+                left: 1rem;
+            }
+            
+            #nightToggle {
+                right: 1rem;
+            }
+        }
+
+        footer {
+        background-color: var(--footer-bg);
+        color: white;
+        padding: 3rem 0 2rem;
+        position: relative;
+        z-index: 2;
+        backdrop-filter: blur(10px);
+        border-top: 1px solid rgba(212, 175, 55, 0.3);
+        opacity: 0;
+        animation: footerSlideUp 1s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+        animation-delay: 0.5s;
+    }
+
+    @keyframes footerSlideUp {
+        from {
+            opacity: 0;
+            transform: translateY(50px);
+        }
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+
+    .footer-content {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 2rem;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 3rem;
+        font-family: 'Poppins', sans-serif;
+    }
+
+    .copyright {
+        font-size: 0.95rem;
+        line-height: 1.6;
+        opacity: 0.8;
+        transition: opacity 0.3s ease;
+    }
+
+    .copyright:hover {
+        opacity: 1;
+    }
+
+    .contact-info h3 {
+        font-size: 1.2rem;
+        font-weight: 600;
+        letter-spacing: 0.5px;
+        margin-bottom: 1.2rem;
+        color: var(--text-gold);
+        position: relative;
+        padding-bottom: 0.5rem;
+    }
+
+    .contact-info h3::after {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 50px;
+        height: 2px;
+        background: var(--gold-gradient);
+        transition: width 0.3s ease;
+    }
+
+    .contact-info h3:hover::after {
+        width: 80px;
+    }
+
+    .contact-list {
+        list-style: none;
+        padding: 0;
+    }
+
+    .contact-link {
+        color: var(--text-light);
+        text-decoration: none;
+        font-weight: 500;
+        padding: 0.3rem 0;
+        display: inline-block;
+        position: relative;
+        transition: all 0.3s ease;
+    }
+
+    .contact-link::before {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 0;
+        height: 1px;
+        background: var(--text-gold);
+        transition: width 0.3s ease;
+    }
+
+    .contact-link:hover {
+        color: var(--text-gold);
+        transform: translateX(8px);
+    }
+
+    .contact-link:hover::before {
+        width: 100%;
+    }
+
+    #visitCount {
+        font-weight: 700;
+        color: var(--text-gold);
+        transition: color 0.3s ease;
+    }
+
+    @media (max-width: 768px) {
+        .footer-content {
+            grid-template-columns: 1fr;
+            gap: 2rem;
+        }
+        
+        .contact-info h3 {
+            font-size: 1.1rem;
+        }
+        
+        .copyright {
+            font-size: 0.9rem;
+        }
+    }
+
+        @keyframes glow {
+            0% { text-shadow: 0 0 10px rgba(212, 175, 55, 0.8); }
+            100% { text-shadow: 0 0 20px rgba(245, 208, 66, 0.9), 0 0 30px rgba(245, 208, 66, 0.6); }
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @media (max-width: 768px) {
+            .hero-title { font-size: 2.5rem; }
+            .hero-subtitle { font-size: 1.2rem; }
+            .footer-content { grid-template-columns: 1fr; }
+        }
+    </style>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <button class="toggle-btn" id="languageToggle" aria-label="Cambiar idioma">EN</button>
+    <button class="toggle-btn" id="nightToggle" aria-label="Modo noche">🌙</button>
+    
+    <main class="main-content">
+        <div class="hero-container">
+            <h1 class="hero-title"> ING. MARIO JAFET EBROMARES FUENTES </h1>
+            <div class="btn-container">
+                <button class="btn" id="downloadBtn"> Descargar CV </button>
+                <a href="2.html" class="btn" id="enterBtn"> Entrar Pagina Web </a>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <div class="copyright">
+                <p>©2025 Mario Jafet Ebromares Fuentes</p>
+                <p><span id="visitsLabel">Visitas:</span> <span id="visitCount">0</span></p>
+            </div>
+            
+            <div class="contact-info">
+                <h3>Contacto</h3>
+                <ul class="contact-list">
+                    <li>
+                        <a href="https://www.linkedin.com/in/ebromaresmario/" 
+                           target="_blank" 
+                           rel="noopener noreferrer"
+                           class="contact-link">
+                            LinkedIn
+                        </a>
+                    </li>
+                    <li>
+                        <a href="mailto:marioebromares@gmail.com?subject=Contactar%20Oportunidad" 
+                           class="contact-link">
+                            marioebromares@gmail.com
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </footer>
+
+    <script type="module">
+        class PortfolioApp {
+            constructor() {
+                this.translations = {
+                    es: this.createSpanishTranslations(),
+                    en: this.createEnglishTranslations()
+                };
+                this.elements = this.getDOMElements();
+                this.initializeApp();
+            }
+
+            createSpanishTranslations() {
+                return {
+                    downloadBtn: 'Descargar CV',
+                    enterBtn: 'Entrar a Pagina Web',
+                    nightToggle: '🌙',
+                    languageToggle: 'EN',
+                    contactTitle: 'Contacto',
+                    copyright: '©2025 Mario Jafet Ebromares Fuentes',
+                    heroTitle: 'ING. MARIO JAFET EBROMARES FUENTES',
+                    visitsLabel: 'Visitas:',
+                    nightLabel: 'Modo noche',
+                    dayLabel: 'Modo día'
+                };
+            }
+
+            createEnglishTranslations() {
+                return {
+                    downloadBtn: 'Download Resume',
+                    enterBtn: 'Enter WebSite',
+                    nightToggle: '🌙',
+                    languageToggle: 'ES',
+                    contactTitle: 'Contact',
+                    copyright: '©2025 Mario Jafet Ebromares Fuentes',
+                    heroTitle: 'ING. MARIO JAFET EBROMARES FUENTES',
+                    visitsLabel: 'Visits:',
+                    nightLabel: 'Night mode',
+                    dayLabel: 'Day mode'
+                };
+            }
+
+            getDOMElements() {
+                return {
+                    downloadBtn: document.getElementById('downloadBtn'),
+                    enterBtn: document.getElementById('enterBtn'),
+                    nightToggle: document.getElementById('nightToggle'),
+                    languageToggle: document.getElementById('languageToggle'),
+                    contactTitle: document.querySelector('.contact-info h3'),
+                    copyright: document.querySelector('.copyright p'),
+                    heroTitle: document.querySelector('.hero-title'),
+                    heroSubtitle: document.querySelector('.hero-subtitle'),
+                    visitCount: document.getElementById('visitCount'),
+                    visitsLabel: document.getElementById('visitsLabel')
+                };
+            }
+
+            initializeApp() {
+                this.currentLang = localStorage.getItem('lang') || 'es';
+                this.darkMode = localStorage.getItem('darkMode') === 'true' || 
+                               window.matchMedia('(prefers-color-scheme: dark)').matches;
+                
+                this.setTheme();
+                this.setupEventListeners();
+                this.updateTranslations();
+                this.setupVisitorCounter();
+                this.addButtonEffects();
+            }
+
+            setTheme() {
+                document.documentElement.lang = this.currentLang;
+                document.documentElement.dataset.theme = this.darkMode ? 'dark' : 'light';
+                this.elements.nightToggle.textContent = this.darkMode ? '☀️' : '🌙';
+            }
+
+            setupEventListeners() {
+                this.elements.languageToggle.addEventListener('click', () => this.toggleLanguage());
+                this.elements.nightToggle.addEventListener('click', () => this.toggleDarkMode());
+                this.elements.downloadBtn.addEventListener('click', () => {
+                    this.animateButton(this.elements.downloadBtn);
+                    setTimeout(() => window.open('CV_EBROMARES.pdf', '_blank'), 500);
+                });
+                this.elements.enterBtn.addEventListener('click', (e) => {
+                    if (!e.ctrlKey && !e.metaKey) {
+                        e.preventDefault();
+                        this.animateButton(this.elements.enterBtn);
+                        setTimeout(() => window.location.href = '2.html', 500);
+                    }
+                });
+            }
+
+            addButtonEffects() {
+                // Efecto de onda al hacer clic
+                const buttons = [this.elements.downloadBtn, this.elements.enterBtn, 
+                                this.elements.languageToggle, this.elements.nightToggle];
+                
+                buttons.forEach(btn => {
+                    btn.addEventListener('click', (e) => {
+                        const x = e.clientX - e.target.getBoundingClientRect().left;
+                        const y = e.clientY - e.target.getBoundingClientRect().top;
+                        
+                        const ripple = document.createElement('span');
+                        ripple.classList.add('ripple');
+                        ripple.style.left = `${x}px`;
+                        ripple.style.top = `${y}px`;
+                        
+                        btn.appendChild(ripple);
+                        
+                        setTimeout(() => {
+                            ripple.remove();
+                        }, 1000);
+                    });
+                });
+            }
+
+            animateButton(button) {
+                button.style.transform = 'scale(0.95)';
+                button.style.boxShadow = '0 0 0 0 rgba(212, 175, 55, 0.7)';
+                
+                setTimeout(() => {
+                    button.style.transform = '';
+                    button.style.boxShadow = '';
+                }, 300);
+            }
+
+            toggleLanguage() {
+                this.currentLang = this.currentLang === 'es' ? 'en' : 'es';
+                localStorage.setItem('lang', this.currentLang);
+                this.updateTranslations();
+                this.animateButton(this.elements.languageToggle);
+            }
+
+            toggleDarkMode() {
+                this.darkMode = !this.darkMode;
+                localStorage.setItem('darkMode', this.darkMode);
+                document.documentElement.dataset.theme = this.darkMode ? 'dark' : 'light';
+                this.elements.nightToggle.textContent = this.darkMode ? '☀️' : '🌙';
+                this.animateButton(this.elements.nightToggle);
+            }
+
+            updateTranslations() {
+                const langData = this.translations[this.currentLang];
+                Object.entries(this.elements).forEach(([key, element]) => {
+                    if (element && langData[key]) {
+                        element.textContent = langData[key];
+                    }
+                });
+                this.elements.nightToggle.setAttribute('aria-label', 
+                    langData[this.darkMode ? 'nightLabel' : 'dayLabel']);
+            }
+
+            setupVisitorCounter() {
+                let visits = localStorage.getItem('visits') || 0;
+                visits = parseInt(visits) + 1;
+                localStorage.setItem('visits', visits);
+                this.elements.visitCount.textContent = visits;
+            }
+        }
+
+        new PortfolioApp();
+    </script>
+</body>
+</html>
